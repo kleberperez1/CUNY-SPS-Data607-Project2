@@ -1,0 +1,81 @@
+skill_type_name,skill_name,rating,company
+programming,agent-based Simulation,32,2
+programming,ANOVA,138,2
+math,Bayes networks,74,2
+math,Bayesian Statistics,175,2
+programming,big data,44,2
+programming,BUGS,160,2
+programming,C,80,2
+math,calculus,91,2
+programming,cloud tech,106,2
+programming,clustering,165,2
+math,continuous Simulation,149,2
+math,convex Optimization,17,2
+programming,CSS,93,2
+programming,DBA,143,2
+business,decision trees,117,2
+visualization,design,15,2
+programming,discrete Simulation,94,2
+programming,Distributed Data,94,2
+visualization,experimental design,152,2
+business,forecasting,49,2
+math,general linear model,133,2
+math,geographic covariates,0,2
+programming,GIS,233,2
+business,global Optimization,94,2
+visualization,Graphical Models,122,2
+programming,Hadoop,76,2
+programming,Hive,106,2
+programming,HTML,73,2
+math,integer Optimization,96,2
+programming,JAVA,70,2
+programming,JavaScript,83,2
+programming,JSON,146,2
+math,linear algebra,69,2
+programming,Machine Learning,98,2
+visualization,Map/Reduce,109,2
+visualization,mapping,134,2
+math,Math,76,2
+programming,MATLAB,108,2
+math,MCMC,68,2
+math,Monte-Carlo Statistics,170,2
+math,multinomial modeling,16,2
+programming,MySQL,114,2
+programming,neural nets,64,2
+programming,nix,6,2
+programming,NoSQL,89,2
+programming,Objective C,129,2
+programming,Oracle,121,2
+programming,Perl,96,2
+programming,Pig,155,2
+programming,PostgreSQL,124,2
+business,Product Development,41,2
+business,project management,25,2
+programming,Python,52,2
+programming,R,64,2
+programming,Rails,132,2
+business,real analysis,70,2
+programming,RegEx,86,2
+programming,Ruby,102,2
+programming,SAS ,52,2
+programming,Simulation,136,2
+communication,social networks,172,2
+math,Spatial Statistics,109,2
+programming,SPSS,122,2
+programming,SQL,44,2
+programming,Stata,107,2
+visualization,statistical graphics,183,2
+math,Statistics,85,2
+programming,Structured Data,75,2
+business,Surveys and Marketing,130,2
+programming,SVM,144,2
+business,Systems Administration,109,2
+communication,technical writing/publishing,4,2
+programming,Teradata,127,2
+programming,text mining,174,2
+math,time-series analysis,167,2
+programming,UNIX ,89,2
+programming,Unstructured Data,92,2
+visualization,visualization,80,2
+visualization,web-based data-viz,0,2
+programming,XML,185,2

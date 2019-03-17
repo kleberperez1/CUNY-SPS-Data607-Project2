@@ -1,0 +1,39 @@
+skill_type_name,skill_name,rating,company
+communication,ai  law,7,1
+business,analysis,10,1
+math,analytics,11,1
+programming,big data,42,1
+programming,cloud,2,1
+business,creativity,3,1
+programming,data engineering,4,1
+programming,data mining,3,1
+programming,data natives,8,1
+programming,devops,2,1
+business,entrepreneurship,2,1
+programming,fintech,2,1
+programming,galaxql,2,1
+business,government,3,1
+programming,Hadoop,12,1
+business,information,9,1
+programming,IOS,2,1
+programming,Java,2,1
+programming,machine learning,15,1
+business,manufacturing,2,1
+programming,MATLAB,2,1
+visualization,media,6,1
+programming,mobile development,2,1
+programming,network,2,1
+programming,NOSQL,5,1
+math,pattern discovery,2,1
+business,policy,3,1
+programming,Python,7,1
+programming,r,7,1
+business,retail,2,1
+programming,RSS,2,1
+programming,Ruby,2,1
+programming,SAS,2,1
+business,security and risk strategy,2,1
+programming,SQL,6,1
+programming,storage,2,1
+programming,tableau,2,1
+programming,web development,2,1

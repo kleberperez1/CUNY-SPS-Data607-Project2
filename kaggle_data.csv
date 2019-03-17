@@ -1,0 +1,27 @@
+skill_type_name,skill_name,rating,company
+programming,Python,28,3
+math,analytics,23,3
+programming,machine learning,19,3
+business,business,14,3
+programming,programming,14,3
+communication,team,14,3
+math,statistics,13,3
+programming,SQL,12,3
+communication,communication,11,3
+programming,modeling,9,3
+communication,interpersonal,9,3
+communication,management,9,3
+programming,big data,7,3
+visualization,design,6,3
+programming,Hadoop,6,3
+programming,Java,6,3
+business,research,4,3
+communication,creative,4,3
+math,math,3,3
+programming,MATLAB,3,3
+programming,predictive analytics,3,3
+programming,SAS,3,3
+communication,leadership,3,3
+business,analysis,2,3
+visualization,presentation,1,3
+programming,R,1,3
