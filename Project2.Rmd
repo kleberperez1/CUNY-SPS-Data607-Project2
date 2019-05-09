@@ -1,0 +1,155 @@
+---
+title: "Data sets from Google, Indeed and Kaggle"
+author: "[Kleber Perez - `r format(Sys.Date(), '%B %d, %Y')`](https://www.linkedin.com/in/kleberperez/)" 
+output: 
+  html_document:
+    code_folding: show
+    theme: flatly
+    highlight: pygments
+    css: ./p2css.css
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#install.packages("RMySQL")
+# 1. Library
+library(RMySQL)
+library(tidyverse)
+library(kableExtra)
+library(plotly)
+library(ggplot2)
+```
+
+<div class="jumbotron jumbotron-fluid">
+
+## Load [data source](https://github.com/LovinSpoonful/) into an R dataframe using MySQL RDBMS
+
+> Each data has a time constraint and had time box, but the efforts to have raw data to provide downstream on this project. The following data resource from Google, Indeed and Kaggle Job Boards generalize the approach to initiate a search for "data science" terms to collect the results, identify the skills and a preliminary filtering of noise and irrelevant data. The results set is provided to transforming the data with the following variables: Skill Type, Skill name, rating and company name. 
+
+</div>
+
+```{r}
+# 2. variables Settings
+db_user <- 'root'
+db_password <- ''
+db_name <- 'skills'
+db_host <- '127.0.0.1' # localhost for local access
+db_port <- 3306
+
+# 3. Read data from db
+mydb <-  dbConnect(MySQL(), user = db_user, password = db_password,
+                 dbname = db_name, host = db_host, port = db_port)
+s <- paste0(" SELECT SkillType, SkillName, Rating,
+                  		CASE
+                  			WHEN Company = 1 THEN 'Google'
+                  			ELSE 'NA'
+                  		END AS Company
+              FROM GoogleData
+              UNION
+              SELECT SkillType, SkillName, Rating,
+                  		CASE
+                  			WHEN Company = 2 THEN 'Indeed'
+                  			ELSE 'NA'
+                  		END AS Company
+              FROM IndeedData
+              UNION
+              SELECT SkillType, SkillName, Rating,
+                  		CASE
+                  			WHEN Company = 3 THEN 'Kaggle'
+                  			ELSE 'NA'
+                  		END AS Company
+              FROM KaggleData;")
+
+rs <- dbSendQuery(mydb, s)
+df <-  fetch(rs, n = -1)
+on.exit(dbDisconnect(mydb))
+
+#uf <- df %>% gather(SkillName, n, Rating:Company)
+kable(df) %>%
+  kable_styling() %>%
+  scroll_box(height = "500px")
+
+
+```
+
+## Summary
+
+```{r df}
+summary(df)
+```
+
+## Including Plots
+
+<div class="jumbotron jumbotron-fluid">
+
+```{r, echo=FALSE}
+f <- as.factor(df$SkillType)
+levels(f)
+plot(f, df$Rating)
+
+#get all resource information per company
+
+ggplot(df, aes(x=SkillType, y=Rating, fill=Company)) +
+ geom_bar(stat="identity") +
+ guides(fill=guide_legend(reverse=TRUE)) +
+ expand_limits(x= 0, y = 0)
+
+# Summarize the median gdpPercap by year & continent, save as by_year_continent
+by_Skill_Rating <- df %>%
+  group_by(SkillType) %>%
+  summarize(medianRating = median(Rating))
+
+ggplot(by_Skill_Rating, aes(x=SkillType, y=medianRating)) +
+  geom_point() +
+  expand_limits(x= 0, y = 0)
+
+```
+
+</div>
+
+<br />
+
+<div class="jumbotron jumbotron-fluid">
+
+## Conclusion
+
+> The purpose of this exercise is to import three data sets in mysql db and tidy them with above libraries. 
+
+
+
+
+(1) Project 3 on rpubs.com, and SQL script and additional files uploaded on github.
+
+<div class=""> 
+<div class="alert alert-info" role="alert"> 
+ <p>
+  <a href="http://rpubs.com/kleberperez/476878" class="btn btn-default" role="button">&nbsp; rpubs &nbsp; </a> 
+  &nbsp; &nbsp; &nbsp;
+  <a href="https://github.com/kleberperez1/CUNY-SPS-Data607-Tidy-Data" class="btn btn-default" role="button"> &nbsp; github &nbsp; </a>
+ </p>
+</div> 
+</div> 
+
+</div>
+
+<br />
+
+* * *
+
+<br />
+<br />
+
+> *Please email to: * <a href="mailto:kleber.perez@live.com">kleber.perez@live.com</a> *for any suggestion.*
+
+<footer class="border-top text-muted fixed-bottom">
+
+        DATA607 Project 2 - MSDS 2019 Program.
+
+</footer>
+
+\textbf{Text ignored: END of other links}
+
+<br />
+<br />
+
+
